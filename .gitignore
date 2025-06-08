@@ -4,3 +4,4 @@ myenv
 carla_yolo_training_result
 **/*.pt
 runs
+__pycache__
