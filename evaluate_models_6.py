@@ -39,7 +39,7 @@ def evaluate_all_models():
 
         for weather in weather_conditions:
             print(f"  - Evaluating on weather: {weather.capitalize()}")
-            weather_yaml = weather_test_path / f"{weather}_config.yaml"
+            weather_yaml = weather_test_path / f"{weather}_dataset.yaml"
             if not weather_yaml.exists():
                 print(f"    Warning: YAML file not found at {weather_yaml}. Skipping.")
                 continue
