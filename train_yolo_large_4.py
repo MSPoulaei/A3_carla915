@@ -30,7 +30,7 @@ def main():
         'data': str(config_file),
         'epochs': 50,
         'imgsz': 512,
-        'batch': 32,
+        'batch': 16,
         'workers': 8,
         'device': '0',  # Use GPU if available
         'project': 'carla_yolo_training_result',
