@@ -3,3 +3,4 @@ myenv
 .venv
 carla_yolo_training_result
 **/*.pt
+runs
