@@ -754,7 +754,7 @@ class CarlaDataCollector:
             # Spawn traffic
             print("🚗 Spawning traffic...")
             vehicles, pedestrians = self.spawn_traffic(
-                num_vehicles=120, num_pedestrians=60
+                num_vehicles=100, num_pedestrians=60
             )
             print(
                 f"✅ Spawned {len(vehicles)} vehicles and {len(pedestrians)} pedestrians"
@@ -832,7 +832,10 @@ class CarlaDataCollector:
     def _create_visualizations(self, analysis_dir, summary_stats):
         """Create comprehensive visualizations for dataset analysis"""
         # plt.style.use('seaborn-v0_8')
-        plt.style.use("seaborn")
+        if "seaborn-v0_8" in plt.style.available:
+            plt.style.use("seaborn-v0_8")
+        else:
+            plt.style.use("seaborn")
 
         # 1. Weather Condition Distribution
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
@@ -904,7 +907,7 @@ class CarlaDataCollector:
 
         # Prepare data for stacked bar chart
         weather_conditions = list(self.dataset_stats["weather_conditions"].keys())
-        class_names = list(self.class_mapping.values())
+        class_names = list(set(self.class_mapping.values()))
 
         # Create matrix of class counts per weather condition
         class_matrix = np.zeros((len(weather_conditions), len(class_names)))

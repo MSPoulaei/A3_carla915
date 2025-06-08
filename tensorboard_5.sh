@@ -1,1 +1,2 @@
 pip install tensorboard
+tensorboard --logdir=carla_yolo_training_result

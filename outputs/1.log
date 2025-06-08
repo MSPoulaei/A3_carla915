@@ -1,0 +1,108 @@
+============================================================
+CARLA YOLOv11 Dataset Collection & Analysis
+============================================================
+🚀 Starting CARLA Data Collection with Merged Visualizations...
+🎯 Target frames per condition: 1000
+🎨 Merged visualizations will be created every 10 frames
+🚗 Spawning traffic...
+✅ Spawned 72 vehicles and 56 pedestrians
+
+🌤️  Collecting data for day condition...
+   📊 Frame 0/1000 - 0.00 FPS - Objects: 5 - Visualizations: 1
+   📊 Frame 100/1000 - 8.98 FPS - Objects: 2 - Visualizations: 11
+   📊 Frame 200/1000 - 9.45 FPS - Objects: 4 - Visualizations: 21
+   📊 Frame 300/1000 - 9.25 FPS - Objects: 2 - Visualizations: 31
+   📊 Frame 400/1000 - 9.11 FPS - Objects: 5 - Visualizations: 41
+   📊 Frame 500/1000 - 8.99 FPS - Objects: 6 - Visualizations: 51
+   📊 Frame 600/1000 - 8.99 FPS - Objects: 8 - Visualizations: 61
+   📊 Frame 700/1000 - 8.99 FPS - Objects: 9 - Visualizations: 71
+   📊 Frame 800/1000 - 8.99 FPS - Objects: 7 - Visualizations: 81
+   📊 Frame 900/1000 - 9.01 FPS - Objects: 6 - Visualizations: 91
+✅ Completed day data collection:
+   📁 Frames: 1000
+   🏷️  Total objects: 5674
+   🎨 Visualizations created: 100
+   📈 Objects per class: {'pedestrian': 821, 'car': 2781, 'bus': 2072}
+
+🌤️  Collecting data for night condition...
+   📊 Frame 0/1000 - 0.00 FPS - Objects: 9 - Visualizations: 1
+   📊 Frame 100/1000 - 7.45 FPS - Objects: 4 - Visualizations: 11
+   📊 Frame 200/1000 - 7.84 FPS - Objects: 5 - Visualizations: 21
+   📊 Frame 300/1000 - 7.96 FPS - Objects: 2 - Visualizations: 31
+   📊 Frame 400/1000 - 7.95 FPS - Objects: 2 - Visualizations: 41
+   📊 Frame 500/1000 - 7.93 FPS - Objects: 3 - Visualizations: 51
+   📊 Frame 600/1000 - 7.96 FPS - Objects: 1 - Visualizations: 61
+   📊 Frame 700/1000 - 8.03 FPS - Objects: 1 - Visualizations: 71
+   📊 Frame 800/1000 - 8.09 FPS - Objects: 1 - Visualizations: 81
+   📊 Frame 900/1000 - 8.11 FPS - Objects: 2 - Visualizations: 91
+✅ Completed night data collection:
+   📁 Frames: 1000
+   🏷️  Total objects: 2445
+   🎨 Visualizations created: 100
+   📈 Objects per class: {'car': 954, 'bus': 1353, 'pedestrian': 124, 'traffic_light': 14}
+
+🌤️  Collecting data for rain condition...
+   📊 Frame 0/1000 - 0.00 FPS - Objects: 3 - Visualizations: 1
+   📊 Frame 100/1000 - 9.16 FPS - Objects: 6 - Visualizations: 11
+   📊 Frame 200/1000 - 9.66 FPS - Objects: 1 - Visualizations: 21
+   📊 Frame 300/1000 - 9.69 FPS - Objects: 0 - Visualizations: 31
+   📊 Frame 400/1000 - 9.67 FPS - Objects: 1 - Visualizations: 41
+   📊 Frame 500/1000 - 9.60 FPS - Objects: 3 - Visualizations: 51
+   📊 Frame 600/1000 - 9.61 FPS - Objects: 4 - Visualizations: 61
+   📊 Frame 700/1000 - 9.69 FPS - Objects: 0 - Visualizations: 71
+   📊 Frame 800/1000 - 9.76 FPS - Objects: 2 - Visualizations: 81
+   📊 Frame 900/1000 - 9.71 FPS - Objects: 4 - Visualizations: 91
+✅ Completed rain data collection:
+   📁 Frames: 1000
+   🏷️  Total objects: 2538
+   🎨 Visualizations created: 100
+   📈 Objects per class: {'car': 1381, 'bus': 997, 'traffic_light': 26, 'pedestrian': 134}
+
+🌤️  Collecting data for fog condition...
+   📊 Frame 0/1000 - 0.00 FPS - Objects: 11 - Visualizations: 1
+   📊 Frame 100/1000 - 9.28 FPS - Objects: 8 - Visualizations: 11
+   📊 Frame 200/1000 - 9.45 FPS - Objects: 9 - Visualizations: 21
+   📊 Frame 300/1000 - 9.49 FPS - Objects: 9 - Visualizations: 31
+   📊 Frame 400/1000 - 9.32 FPS - Objects: 9 - Visualizations: 41
+   📊 Frame 500/1000 - 9.24 FPS - Objects: 10 - Visualizations: 51
+   📊 Frame 600/1000 - 9.29 FPS - Objects: 8 - Visualizations: 61
+   📊 Frame 700/1000 - 9.32 FPS - Objects: 8 - Visualizations: 71
+   📊 Frame 800/1000 - 9.35 FPS - Objects: 7 - Visualizations: 81
+   📊 Frame 900/1000 - 9.32 FPS - Objects: 7 - Visualizations: 91
+✅ Completed fog data collection:
+   📁 Frames: 1000
+   🏷️  Total objects: 8480
+   🎨 Visualizations created: 100
+   📈 Objects per class: {'car': 2729, 'pedestrian': 2311, 'bus': 3440}
+
+Generating dataset analysis...
+Dataset analysis saved to: carla_dataset/analysis
+
+🎉 DATA COLLECTION COMPLETED SUCCESSFULLY! 🎉
+📊 Total frames collected: 4000
+🏷️  Total instances annotated: 19137
+🎨 Total merged visualizations created: 400
+ERROR: failed to destroy actor 619 : unable to destroy actor: not found 
+
+============================================================
+Running Advanced Dataset Analysis...
+============================================================
+/home/vision/Poulaei/Carla/carla_data_collector_1.py:1412: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax2.boxplot(weather_sizes.values(), labels=weather_sizes.keys())
+
+🎉 DATASET COLLECTION COMPLETED! 🎉
+📊 Total Frames: 4,000
+🏷️  Total Annotated Objects: 19,137
+🌤️  Weather Conditions: 4
+📱 Object Classes: 4
+📁 Dataset saved to: carla_dataset
+📈 Analysis saved to: carla_dataset/analysis
+
+📋 Next Steps:
+1. Review the generated analysis report
+2. Implement data augmentation strategies
+3. Convert annotations to YOLOv11 format
+4. Split dataset for training/validation/testing
+5. Begin YOLOv11 model training
+
+🧹 Cleaning up CARLA environment...
