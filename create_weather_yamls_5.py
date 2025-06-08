@@ -84,7 +84,7 @@ def create_weather_specific_yamls(dataset_path: Path):
         weather_config = config.copy()
 
         # The 'path' should be the main dataset directory, relative to the new YAML file
-        weather_config['path'] = '..'
+        # weather_config['path'] = '..'
         
         # Keep the original 'train' and 'val' paths
         # They are already relative to the dataset root, which is now '..'
