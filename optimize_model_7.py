@@ -91,7 +91,7 @@ if __name__ == '__main__':
     trained_model_path = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.pt")
     
     # A sample image for benchmarking
-    sample_image = Path("yolo_dataset/test/images/day_00001.png")
+    sample_image = Path("yolo_dataset/test/images/day_00000.png")
     
     if not sample_image.exists():
         print(f"Error: Sample image not found at {sample_image}. Please provide a valid path.")

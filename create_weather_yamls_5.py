@@ -99,7 +99,7 @@ def create_weather_specific_yamls(dataset_path: Path):
         # Write the new configuration to the YAML file
         with open(weather_yaml_path, 'w') as f:
             yaml.dump(weather_config, f, default_flow_style=False, sort_keys=False)
-            
+              
         print(f"✅ Successfully created '{weather_yaml_path}'")
 
     print("\n🎉 All done!")

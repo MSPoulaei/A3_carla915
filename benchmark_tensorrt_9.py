@@ -111,7 +111,7 @@ if __name__ == '__main__':
     # --- Config ---
     PT_MODEL_PATH = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.pt")
     TRT_ENGINE_PATH = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.engine")
-    SAMPLE_IMAGE = Path("yolo_dataset/test/images/day_00001.png")
+    SAMPLE_IMAGE = Path("yolo_dataset/test/images/day_00000.png")
 
     # --- Benchmark PyTorch ---
     print("--- Benchmarking PyTorch Pipeline ---")

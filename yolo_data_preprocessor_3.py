@@ -1,4 +1,3 @@
-# yolo_data_preprocessor.py
 import os
 import json
 import cv2
@@ -822,13 +821,13 @@ def main():
     # Training parameters
     training_args = {{
         'data': str(config_file),
-        'epochs': 100,
+        'epochs': 50,
         'imgsz': 512,
         'batch': 16,
         'workers': 8,
         'device': '0',  # Use GPU if available
-        'project': 'carla_yolo_training',
-        'name': 'carla_segmentation_v1',
+        'project': 'carla_yolo_training_result',
+        'name': 'carla_segmentation_nano',
         'save_period': 10,
         'val': True,
         'plots': True,
