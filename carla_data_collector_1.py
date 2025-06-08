@@ -5,6 +5,7 @@
 # sys.path.append(
 #     'E:\\eLearning\\code\\TermArshad2\\ML\\Carla\\WindowsNoEditor\\PythonAPI\\carla\\dist\\carla-0.9.11-py%d.%d-win-amd64.egg' % (sys.version_info.major,
 #                                                              sys.version_info.minor))
+
 import carla
 import numpy as np
 import cv2
@@ -57,10 +58,12 @@ class CarlaDataCollector:
         
         # Class mappings for instance segmentation
         # self.class_mapping = {
-        #     10: 'vehicle',      # Cars
-        #     # 10: 'bus',       # Bus
-        #     4: 'pedestrian', # Pedestrians  
-        #     18: 'traffic_light' # Traffic lights
+        #     7: "traffic_light",
+        #     12: "pedestrian",
+        #     13: "pedestrian",
+        #     14: "car",
+        #     15: "car",
+        #     16: "bus",
         # }
         self.class_mapping = {
             7: "traffic_light",
@@ -70,6 +73,39 @@ class CarlaDataCollector:
             15: "car",
             16: "bus",
         }
+        # 1 road
+        # 2 kerare road 
+        # 3 building
+        # 4 wall
+        # 5 fence
+        # 6 pole
+        # 7
+        # 8 traffic sign
+        # 9 Vegetation
+        # 10 Grass
+        # 11 sky
+        # 12 pedestrian
+        # 13
+        # 14 car
+        # 15
+        # 16 bus
+        # 17
+        # 18 motor
+        # 19 
+
+        # self.class_mapping[15]="traffic_light" 
+        # self.class_mapping[19]="pedestrian"
+        # self.class_mapping[17]="car"
+        # self.class_mapping[18]="bus"
+        # for i in range(6):
+        #     self.class_mapping[i]="traffic_light"
+        # for i in range(6,11):
+        #     self.class_mapping[i]="pedestrian"
+        # for i in range(11,16):
+        #     self.class_mapping[i]="car"
+        # for i in range(16,21):
+        #     self.class_mapping[i]="bus"
+
         self.class_mapping_to_catid = {
             "car": 0,
             "bus": 1,
@@ -91,7 +127,7 @@ class CarlaDataCollector:
     def _create_directories(self):
         """Create directory structure for dataset"""
         for weather in self.weather_presets.keys():
-            for data_type in ['rgb', 'segmentation', 'annotations']:
+            for data_type in ['rgb', 'segmentation', 'annotations', 'visualizations']:
                 path = os.path.join(self.output_dir, weather, data_type)
                 os.makedirs(path, exist_ok=True)
         
@@ -144,7 +180,6 @@ class CarlaDataCollector:
         self.rgb_camera.listen(lambda image: self.rgb_queue.put(image))
         
         # Instance Segmentation Camera
-        # seg_bp = self.blueprint_library.find('sensor.camera.semantic_segmentation')
         seg_bp = self.blueprint_library.find('sensor.camera.instance_segmentation')
         seg_bp.set_attribute('image_size_x', str(self.image_width))
         seg_bp.set_attribute('image_size_y', str(self.image_height))
@@ -163,7 +198,6 @@ class CarlaDataCollector:
         
         # Spawn vehicles
         vehicles = []
-        # Python code with car and bus blueprint IDs from the CARLA documentation.
 
         # Car Blueprints
         car_bps_ids = [
@@ -199,26 +233,9 @@ class CarlaDataCollector:
             'vehicle.mitsubishi.fusorosa',
         ]
 
-        # You can then use these lists to filter the blueprint library
-        # Example:
-        # vehicle_bps = self.world.get_blueprint_library().filter('vehicle.*')
         vehicle_bps = self.blueprint_library.filter('vehicle.*')
-        # print(len(vehicle_bps))
-        # for bp in vehicle_bps:
-        #     print(bp)
         car_bps = [bp for bp in vehicle_bps if bp.id in car_bps_ids]
-        # print("--------")
-        # print(len(car_bps))
-        # for bp in car_bps:
-        #     print(bp)
         bus_bps = [bp for bp in vehicle_bps if bp.id in bus_bps_ids]
-        # print("--------")
-        # print(len(bus_bps))
-        # for bp in bus_bps:
-        #     print(bp)
-        # Filter for cars and buses
-        # car_bps = [bp for bp in vehicle_bps if any(x in bp.id for x in ['car', 'vehicle'])]
-        # bus_bps = [bp for bp in vehicle_bps if 'bus' in bp.id or bp.id=="vehicle.mitsubishi.fusorosa"]
         
         for i in range(num_vehicles):
             # 80% cars, 20% buses
@@ -301,12 +318,8 @@ class CarlaDataCollector:
         seg_array = seg_array.reshape((self.image_height, self.image_width, 4))
         
         # Instance segmentation uses R channel for instance ID and G for class ID
-        # instance_ids = seg_array[:, :, 0]
-        # class_ids = seg_array[:, :, 1]
-
         instance_ids = seg_array[:, :, 0].astype(np.uint16) + (seg_array[:, :, 1].astype(np.uint16) * 256)
         class_ids = seg_array[:, :, 2]
-
         
         # Create annotation data
         annotations = {
@@ -388,22 +401,106 @@ class CarlaDataCollector:
         
         return annotations, seg_array
     
+    def create_merged_visualization(self, rgb_image, seg_array, annotations, weather_condition, frame_name):
+        """Create merged visualization of RGB and segmentation with annotations"""
+        # Convert RGB image to numpy array
+        rgb_array = np.frombuffer(rgb_image.raw_data, dtype=np.uint8).reshape((self.image_height, self.image_width, 4))
+        rgb_bgr = rgb_array[:, :, :3].copy()  # Keep BGR format for OpenCV
+        
+        # Create segmentation visualization
+        seg_vis = self.create_segmentation_visualization(seg_array)
+        
+        # Create a figure with subplots
+        fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+        fig.suptitle(f'{weather_condition.capitalize()} - Frame {self.frame_id:06d} - Objects: {len(annotations["objects"])}', 
+                     fontsize=16, fontweight='bold')
+        
+        # Convert BGR to RGB for matplotlib
+        rgb_for_plt = cv2.cvtColor(rgb_bgr, cv2.COLOR_BGR2RGB)
+        
+        # 1. Original RGB image
+        axes[0, 0].imshow(rgb_for_plt)
+        axes[0, 0].set_title('RGB Image', fontweight='bold')
+        axes[0, 0].axis('off')
+        
+        # 2. Segmentation visualization
+        axes[0, 1].imshow(seg_vis)
+        axes[0, 1].set_title('Instance Segmentation', fontweight='bold')
+        axes[0, 1].axis('off')
+        
+        # 3. RGB with bounding boxes
+        rgb_with_boxes = rgb_for_plt.copy()
+        class_colors = {
+            'car': (255, 0, 0),
+            'bus': (0, 255, 0),
+            'pedestrian': (0, 0, 255),
+            'traffic_light': (255, 255, 0)
+        }
+        
+        # Draw bounding boxes and labels on RGB image
+        for obj in annotations['objects']:
+            bbox = obj['bbox']
+            class_name = obj['class']
+            x, y, w, h = bbox
+            
+            color = class_colors.get(class_name, (255, 255, 255))
+            
+            # Draw rectangle
+            cv2.rectangle(rgb_with_boxes, (x, y), (x + w, y + h), color, 2)
+            
+            # Add label
+            label = f"{class_name} ({obj['instance_id']})"
+            label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
+            
+            # Background for text
+            cv2.rectangle(rgb_with_boxes, (x, y - 20), (x + label_size[0], y), color, -1)
+            cv2.putText(rgb_with_boxes, label, (x, y - 5), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+        
+        axes[1, 0].imshow(rgb_with_boxes)
+        axes[1, 0].set_title('RGB with Bounding Boxes', fontweight='bold')
+        axes[1, 0].axis('off')
+        
+        # 4. Combined overlay (RGB + Segmentation)
+        # Create semi-transparent overlay
+        alpha = 0.6
+        overlay = cv2.addWeighted(rgb_for_plt, alpha, seg_vis, 1 - alpha, 0)
+        
+        axes[1, 1].imshow(overlay)
+        axes[1, 1].set_title('RGB + Segmentation Overlay', fontweight='bold')
+        axes[1, 1].axis('off')
+        
+        # Add statistics text
+        class_counts = {}
+        for obj in annotations['objects']:
+            class_name = obj['class']
+            class_counts[class_name] = class_counts.get(class_name, 0) + 1
+        
+        stats_text = "Objects detected:\n"
+        for class_name, count in class_counts.items():
+            stats_text += f"• {class_name.replace('_', ' ').title()}: {count}\n"
+        
+        fig.text(0.02, 0.02, stats_text, fontsize=10, 
+                bbox=dict(boxstyle="round,pad=0.3", facecolor="lightgray", alpha=0.8))
+        
+        # Save the merged visualization
+        vis_path = os.path.join(self.output_dir, weather_condition, 'visualizations', f"{frame_name}_merged.png")
+        plt.tight_layout()
+        plt.savefig(vis_path, dpi=100, bbox_inches='tight')
+        plt.close()
+        
+        # print(f"   💾 Saved merged visualization: {frame_name}_merged.png")
+    
     def save_frame_data(self, rgb_image, seg_image, annotations, weather_condition):
         """Save RGB image, segmentation, and annotations"""
         frame_name = f"{weather_condition}_{self.frame_id:06d}"
         
         # Save RGB image
-        # rgb_array = np.frombuffer(rgb_image.raw_data, dtype=np.dtype("uint8"))
-        # rgb_array = rgb_array.reshape((self.image_height, self.image_width, 4))
-        # rgb_array = rgb_array[:, :, :3]  # Remove alpha channel
-        # rgb_array = rgb_array[:, :, ::-1]  # BGR to RGB
         rgb_array = np.frombuffer(rgb_image.raw_data, dtype=np.uint8).reshape((self.image_height, self.image_width, 4))
-        bgr_array = rgb_array[:, :, :3]  # Selects the B, G, R channels
-        # cv2.imwrite(str(path_to_save), bgr_array) # Saves correctly
-
+        rgb_bgr = rgb_array[:, :, :3]
         
         rgb_path = os.path.join(self.output_dir, weather_condition, 'rgb', f"{frame_name}.png")
-        cv2.imwrite(rgb_path, rgb_array)
+        cv2.imwrite(rgb_path, rgb_bgr)
         
         # Save segmentation visualization
         seg_vis = self.create_segmentation_visualization(seg_image)
@@ -417,6 +514,11 @@ class CarlaDataCollector:
         
         # Save YOLOv11 format annotation
         self.save_yolo_annotation(annotations, weather_condition, frame_name)
+        
+        # Create merged visualization every 10 frames
+        if self.frame_id % 10 == 0:
+            # print(f"   🎨 Creating merged visualization for frame {self.frame_id}")
+            self.create_merged_visualization(rgb_image, seg_image, annotations, weather_condition, frame_name)
     
     def save_yolo_annotation(self, annotations, weather_condition, frame_name):
         """Save annotations in YOLOv11 format"""
@@ -432,30 +534,24 @@ class CarlaDataCollector:
     
     def create_segmentation_visualization(self, seg_array):
         """Create colored visualization of segmentation"""
-        # Define colors for each class
-
-        # colors_str_to_color = {
-        #     "car": [255, 0, 0],      # Car - Red
-        #     "bus": [0, 255, 0],       # Bus - Green  
-        #     "pedestrian": [0, 0, 255],       # Pedestrian - Blue
-        #     "traffic_light": [255, 255, 0]     # Traffic light - Yellow
+        # colors = {
+        #     14: [255, 0, 0],      # Car - Red
+        #     15: [255, 0, 0],      # Car - Red
+        #     16: [0, 255, 0],       # Bus - Green
+        #     12: [0, 0, 255],       # Pedestrian - Blue
+        #     13: [0, 0, 255],       # Pedestrian - Blue
+        #     7: [255, 255, 0]     # Traffic light - Yellow
         # }
         colors={
-            14: [255, 0, 0],      # Car - Red
-            15: [255, 0, 0],      # Car - Red
-            16: [0, 255, 0],       # Bus - Green
-            12: [0, 0, 255],       # Pedestrian - Blue
-            13: [0, 0, 255],       # Pedestrian - Blue
-            7: [255, 255, 0]     # Traffic light - Yellow
+            "car": [255, 0, 0],
+            "bus": [0, 255, 0],
+            "pedestrian": [0, 0, 255],
+            "traffic_light": [255, 255, 0]
         }
-
         
         vis = np.zeros((self.image_height, self.image_width, 3), dtype=np.uint8)
         
         # Color each instance
-        # instance_ids = seg_array[:, :, 0]
-        # class_ids = seg_array[:, :, 1]
-
         instance_ids = seg_array[:, :, 0].astype(np.uint16) + (seg_array[:, :, 1].astype(np.uint16) * 256)
         class_ids = seg_array[:, :, 2]
         
@@ -466,14 +562,14 @@ class CarlaDataCollector:
             mask = (instance_ids == instance_id)
             class_id = class_ids[mask][0]
             
-            if class_id in colors:
-                vis[mask] = colors[class_id]
+            if class_id in self.class_mapping:
+                vis[mask] = colors[self.class_mapping[class_id]]
         
         return vis
     
     def collect_data(self, weather_condition, num_frames=1000, ego_speed=30):
         """Main data collection loop for a specific weather condition"""
-        print(f"\nCollecting data for {weather_condition} condition...")
+        print(f"\n🌤️  Collecting data for {weather_condition} condition...")
         
         # Set weather
         self.world.set_weather(self.weather_presets[weather_condition])
@@ -485,7 +581,8 @@ class CarlaDataCollector:
         weather_stats = {
             'frames_collected': 0,
             'objects_per_class': defaultdict(int),
-            'total_objects': 0
+            'total_objects': 0,
+            'visualizations_created': 0
         }
         
         try:
@@ -526,12 +623,15 @@ class CarlaDataCollector:
                     seg_image, weather_condition, rgb_image
                 )
                 
-                # Save frame data
+                # Save frame data (includes merged visualization every 10 frames)
                 self.save_frame_data(rgb_image, seg_array, annotations, weather_condition)
                 
                 # Update statistics
                 weather_stats['frames_collected'] += 1
                 weather_stats['total_objects'] += len(annotations['objects'])
+                
+                if self.frame_id % 10 == 0:
+                    weather_stats['visualizations_created'] += 1
                 
                 for obj in annotations['objects']:
                     weather_stats['objects_per_class'][obj['class']] += 1
@@ -542,19 +642,20 @@ class CarlaDataCollector:
                 if frame % 100 == 0:
                     elapsed = time.time() - start_time
                     fps = frame / elapsed if elapsed > 0 else 0
-                    print(f"Frame {frame}/{num_frames} - {fps:.2f} FPS - Objects: {len(annotations['objects'])}")
+                    print(f"   📊 Frame {frame}/{num_frames} - {fps:.2f} FPS - Objects: {len(annotations['objects'])} - Visualizations: {weather_stats['visualizations_created']}")
             
             # Store weather condition statistics
             self.dataset_stats['weather_conditions'][weather_condition] = weather_stats
             self.dataset_stats['total_frames'] += weather_stats['frames_collected']
             
-            print(f"Completed {weather_condition} data collection:")
-            print(f"  Frames: {weather_stats['frames_collected']}")
-            print(f"  Total objects: {weather_stats['total_objects']}")
-            print(f"  Objects per class: {dict(weather_stats['objects_per_class'])}")
+            print(f"✅ Completed {weather_condition} data collection:")
+            print(f"   📁 Frames: {weather_stats['frames_collected']}")
+            print(f"   🏷️  Total objects: {weather_stats['total_objects']}")
+            print(f"   🎨 Visualizations created: {weather_stats['visualizations_created']}")
+            print(f"   📈 Objects per class: {dict(weather_stats['objects_per_class'])}")
             
         except Exception as e:
-            print(f"Error during data collection: {e}")
+            print(f"❌ Error during data collection: {e}")
             raise
     
     def cleanup_actors(self):
@@ -582,12 +683,13 @@ class CarlaDataCollector:
             self.world.apply_settings(settings)
             
         except Exception as e:
-            print(f"Error during cleanup: {e}")
+            print(f"⚠️  Error during cleanup: {e}")
     
     def run_full_data_collection(self, frames_per_condition=1000):
         """Run complete data collection for all weather conditions"""
-        print("Starting CARLA Data Collection...")
-        print(f"Target frames per condition: {frames_per_condition}")
+        print("🚀 Starting CARLA Data Collection with Merged Visualizations...")
+        print(f"🎯 Target frames per condition: {frames_per_condition}")
+        print("🎨 Merged visualizations will be created every 10 frames")
         
         try:
             # Setup synchronous mode
@@ -597,9 +699,9 @@ class CarlaDataCollector:
             self.spawn_ego_vehicle()
             
             # Spawn traffic
-            print("Spawning traffic...")
+            print("🚗 Spawning traffic...")
             vehicles, pedestrians = self.spawn_traffic(num_vehicles=120, num_pedestrians=60)
-            print(f"Spawned {len(vehicles)} vehicles and {len(pedestrians)} pedestrians")
+            print(f"✅ Spawned {len(vehicles)} vehicles and {len(pedestrians)} pedestrians")
             
             # Collect data for each weather condition
             for weather_condition in self.weather_presets.keys():
@@ -609,9 +711,13 @@ class CarlaDataCollector:
             # Generate dataset analysis
             self.generate_dataset_analysis()
             
-            print("\nData collection completed successfully!")
-            print(f"Total frames collected: {self.dataset_stats['total_frames']}")
-            print(f"Total instances annotated: {self.dataset_stats['total_instances']}")
+            total_visualizations = sum([stats.get('visualizations_created', 0) 
+                                      for stats in self.dataset_stats['weather_conditions'].values()])
+            
+            print("\n🎉 DATA COLLECTION COMPLETED SUCCESSFULLY! 🎉")
+            print(f"📊 Total frames collected: {self.dataset_stats['total_frames']}")
+            print(f"🏷️  Total instances annotated: {self.dataset_stats['total_instances']}")
+            print(f"🎨 Total merged visualizations created: {total_visualizations}")
             
         finally:
             self.cleanup_actors()

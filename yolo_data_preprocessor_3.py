@@ -30,9 +30,9 @@ class YOLOv11DataPreprocessor:
         # Class mapping (same as CARLA collector)
         self.class_mapping = {
             "car": 0,
-            # 'bus': 1,
-            "pedestrian": 1,
-            "traffic_light": 2,
+            'bus': 1,
+            "pedestrian": 2,
+            "traffic_light": 3,
         }
         self.class_names = list(self.class_mapping.keys())
 
