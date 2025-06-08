@@ -1,0 +1,10 @@
+🚀 Starting to create weather-specific test sets and YAML files...
+📁 New test sets will be created in: 'yolo_dataset/weather_test_sets'
+🔄 Copying test files from 'yolo_dataset/test/images'...
+📝 Creating new YAML configuration files...
+✅ Successfully created 'yolo_dataset/weather_test_sets/day_dataset.yaml'
+✅ Successfully created 'yolo_dataset/weather_test_sets/night_dataset.yaml'
+✅ Successfully created 'yolo_dataset/weather_test_sets/rain_dataset.yaml'
+✅ Successfully created 'yolo_dataset/weather_test_sets/fog_dataset.yaml'
+
+🎉 All done!

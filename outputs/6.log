@@ -1,0 +1,121 @@
+Starting model evaluation...
+
+--- Loading Model: YOLOv11n-seg ---
+  - Evaluating on weather: Day
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+YOLO11n-seg summary (fused): 113 layers, 2,835,348 parameters, 0 gradients, 10.2 GFLOPs
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 657.4±78.9 MB/s, size: 290.3 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:04<00:
+                   all        800       3817      0.884      0.692      0.783      0.691      0.877      0.685      0.767      0.566
+Speed: 0.3ms preprocess, 2.3ms inference, 0.0ms loss, 0.6ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val2
+  - Evaluating on weather: Night
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 5694.0±467.9 MB/s, size: 336.5 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:04<00:
+                   all        800       3817      0.884      0.692      0.783      0.691      0.877      0.685      0.767      0.566
+Speed: 0.2ms preprocess, 2.3ms inference, 0.0ms loss, 0.5ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val3
+  - Evaluating on weather: Rain
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 5797.5±785.8 MB/s, size: 307.3 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:04<00:
+                   all        800       3817      0.884      0.692      0.783      0.691      0.877      0.685      0.767      0.566
+Speed: 0.2ms preprocess, 2.3ms inference, 0.0ms loss, 0.5ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val4
+  - Evaluating on weather: Fog
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 4364.9±1393.8 MB/s, size: 352.1 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:04<00:
+                   all        800       3817      0.884      0.692      0.783      0.691      0.877      0.685      0.767      0.566
+Speed: 0.3ms preprocess, 2.3ms inference, 0.0ms loss, 0.5ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val5
+
+--- Loading Model: YOLOv11m-seg ---
+  - Evaluating on weather: Day
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+YOLO11m-seg summary (fused): 138 layers, 22,338,396 parameters, 0 gradients, 123.0 GFLOPs
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 5392.9±1055.0 MB/s, size: 377.9 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:12<00:
+                   all        800       3817      0.876      0.718      0.794      0.698      0.874      0.716      0.792      0.578
+Speed: 0.2ms preprocess, 12.5ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val6
+  - Evaluating on weather: Night
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 4890.3±1240.0 MB/s, size: 326.4 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:12<00:
+                   all        800       3817      0.876      0.718      0.794      0.698      0.874      0.716      0.792      0.578
+Speed: 0.2ms preprocess, 12.4ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val7
+  - Evaluating on weather: Rain
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 5468.1±901.9 MB/s, size: 332.5 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:12<00:
+                   all        800       3817      0.876      0.718      0.794      0.698      0.874      0.716      0.792      0.578
+Speed: 0.2ms preprocess, 12.4ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val8
+  - Evaluating on weather: Fog
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 4538.9±656.5 MB/s, size: 292.8 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:12<00:
+                   all        800       3817      0.876      0.718      0.794      0.698      0.874      0.716      0.792      0.578
+Speed: 0.2ms preprocess, 12.5ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val9
+
+--- Loading Model: YOLOv11l-seg ---
+  - Evaluating on weather: Day
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+YOLO11l-seg summary (fused): 203 layers, 27,587,676 parameters, 0 gradients, 141.9 GFLOPs
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 5621.5±502.3 MB/s, size: 276.5 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:14<00:
+                   all        800       3817      0.871      0.701      0.778      0.677      0.868      0.698      0.775       0.58
+Speed: 0.2ms preprocess, 15.2ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val10
+  - Evaluating on weather: Night
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 4423.1±1889.3 MB/s, size: 310.2 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:14<00:
+                   all        800       3817      0.871      0.701      0.778      0.677      0.868      0.698      0.775       0.58
+Speed: 0.2ms preprocess, 15.4ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val11
+  - Evaluating on weather: Rain
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 4067.7±1649.2 MB/s, size: 313.2 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:14<00:
+                   all        800       3817      0.871      0.701      0.778      0.677      0.868      0.698      0.775       0.58
+Speed: 0.2ms preprocess, 15.6ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val12
+  - Evaluating on weather: Fog
+Ultralytics 8.3.152 🚀 Python-3.10.12 torch-2.7.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3060, 12037MiB)
+val: Fast image access ✅ (ping: 0.0±0.0 ms, read: 3537.5±1518.2 MB/s, size: 264.9 KB)
+val: Scanning /home/vision/Poulaei/Carla/yolo_dataset/val/labels.cache... 800 images, 67 backgrounds, 0 corrupt: 100%|██████████| 800/800 [00:00<?, ?it/s]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100%|██████████| 50/50 [00:14<00:
+                   all        800       3817      0.871      0.701      0.778      0.677      0.868      0.698      0.775       0.58
+Speed: 0.2ms preprocess, 15.1ms inference, 0.0ms loss, 0.4ms postprocess per image
+Results saved to /home/vision/Poulaei/Carla/runs/segment/val13
+
+--- Overall Evaluation Summary ---
+Model,Weather,mAP@50-95,mAP@50,Inference Time (ms)
+YOLOv11n-seg,Day,0.5659,0.7670,10.64
+YOLOv11n-seg,Night,0.5659,0.7670,9.82
+YOLOv11n-seg,Rain,0.5659,0.7670,9.92
+YOLOv11n-seg,Fog,0.5659,0.7670,10.34
+YOLOv11m-seg,Day,0.5781,0.7925,19.00
+YOLOv11m-seg,Night,0.5781,0.7925,18.55
+YOLOv11m-seg,Rain,0.5781,0.7925,18.17
+YOLOv11m-seg,Fog,0.5781,0.7925,19.61
+YOLOv11l-seg,Day,0.5802,0.7745,22.22
+YOLOv11l-seg,Night,0.5802,0.7745,21.54
+YOLOv11l-seg,Rain,0.5802,0.7745,22.71
+YOLOv11l-seg,Fog,0.5802,0.7745,21.44
