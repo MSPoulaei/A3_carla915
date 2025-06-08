@@ -88,7 +88,7 @@ def quantize_and_compare(model_path: Path, sample_image_path: Path):
 
 if __name__ == '__main__':
     # Path to your best trained PyTorch model
-    trained_model_path = Path("runs/train/carla_segmentation_nano/weights/best.pt")
+    trained_model_path = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.pt")
     
     # A sample image for benchmarking
     sample_image = Path("yolo_dataset/test/images/day_00001.png")

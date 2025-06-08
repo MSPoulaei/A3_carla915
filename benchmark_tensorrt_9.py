@@ -109,8 +109,8 @@ def benchmark_pipeline(model_or_engine, image_path, num_runs=50):
 
 if __name__ == '__main__':
     # --- Config ---
-    PT_MODEL_PATH = Path("runs/train/carla_segmentation_nano/weights/best.pt")
-    TRT_ENGINE_PATH = Path("runs/train/carla_segmentation_nano/weights/best.engine")
+    PT_MODEL_PATH = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.pt")
+    TRT_ENGINE_PATH = Path("carla_yolo_training_result/carla_segmentation_nano/weights/best.engine")
     SAMPLE_IMAGE = Path("yolo_dataset/test/images/day_00001.png")
 
     # --- Benchmark PyTorch ---

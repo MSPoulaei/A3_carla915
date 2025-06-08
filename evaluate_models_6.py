@@ -12,7 +12,7 @@ def evaluate_all_models():
     """
     # --- Configuration ---
     # Path to the base directory where training runs are saved
-    runs_path = Path("runs/train")
+    runs_path = Path("carla_yolo_training_result")
     
     # Path to the weather-specific dataset configurations
     weather_test_path = Path("yolo_dataset/weather_test_sets")
