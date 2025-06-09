@@ -1,0 +1,9 @@
+\contentsline {chapter}{\numberline {1}چکیده}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}مقدمه}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {3}تولید و تحلیل مجموعه داده}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}پیش‌پردازش و تقسیم‌بندی داده‌ها}{12}{chapter.4}%
+\contentsline {chapter}{\numberline {5}افزون‌سازی داده‌ها}{16}{chapter.5}%
+\contentsline {chapter}{\numberline {6}آموزش مدل}{19}{chapter.6}%
+\contentsline {chapter}{\numberline {7}ارزیابی}{26}{chapter.7}%
+\contentsline {chapter}{\numberline {8}بحث و بررسی نتایج}{28}{chapter.8}%
+\contentsline {chapter}{\numberline {9}نتیجه‌گیری}{30}{chapter.9}%

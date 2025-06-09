@@ -1,0 +1,30 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces نمودارهای تحلیل مجموعه داده، شامل توزیع کلاس‌ها و شرایط آب و هوایی.}}{8}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces نمودار توزیع کلاس‌ها بر اساس شرایط آب و هوایی}}{9}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces تحلیل همبستگی بین کلاس‌ها و شرایط آب و هوایی}}{9}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces نمودار توازن مجموعه داده بر اساس تعداد نمونه‌های هر کلاس}}{10}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces نمودار نمای کلی مجموعه داده، شامل تعداد تصاویر و نمونه‌های کلی}}{10}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces نمودار تحلیل خاص آب و هوا، شامل معیارهای عملکرد برای هر شرایط}}{11}{figure.3.6}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces نمودار آمار مجموعه داده، شامل تعداد تصاویر و نمونه‌های کلی در مجموعه‌های آموزشی، اعتبارسنجی و آزمون}}{13}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces نمونه‌ای از تصویر و ماسک قطعه‌بندی نمونه در شرایط بارانی}}{14}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces نمونه‌ای از تصویر و ماسک قطعه‌بندی نمونه در شرایط شب}}{15}{figure.4.3}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces نمونه‌هایی از تصاویر افزون‌سازی‌شده با استفاده از کتابخانه Albumentations}}{17}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces نمونه‌هایی از افزون‌سازی‌های جداگانه اعمال شده بر روی تصاویر مجموعه داده}}{17}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces نمودار شدت افزون‌سازی، نشان‌دهنده توزیع شدت افزون‌سازی‌های مختلف اعمال شده}}{18}{figure.5.3}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces نمودارهای خطای آموزش و اعتبارسنجی برای مدل‌ نانو}}{20}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces ماتریس درهم رفتگی با داده های val برای مدل نانو}}{20}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces تست مدل نانو بر روی داده های val}}{21}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces نمودارهای خطای آموزش و اعتبارسنجی برای مدل‌ متوسط}}{21}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces ماتریس درهم رفتگی با داده های val برای مدل متوسط}}{22}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces تست مدل متوسط بر روی داده های val}}{23}{figure.6.6}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces نمودارهای خطای آموزش و اعتبارسنجی برای مدل‌ بزرگ}}{23}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces ماتریس درهم رفتگی با داده های val برای مدل بزرگ}}{24}{figure.6.8}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces تست مدل بزرگ بر روی داده های val}}{25}{figure.6.9}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
