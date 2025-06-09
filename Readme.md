@@ -4,11 +4,14 @@
 
 This repository contains the complete project for the "YOLOv11 Instance Segmentation and Model Evaluation in Adverse Conditions" assignment for the Computer Science Department at Iran University of Science and Technology. The project involves generating a synthetic dataset using the **CARLA simulator**, training and evaluating three variants of the **YOLOv11-seg** model, and analyzing their performance on instance segmentation tasks under various weather conditions.
 
+
+
 ## Table of Contents
 - [YOLOv11 Instance Segmentation in Adverse Weather](#yolov11-instance-segmentation-in-adverse-weather)
   - [Table of Contents](#table-of-contents)
   - [Project Overview](#project-overview)
   - [Key Features](#key-features)
+  - [Trained Models](#trained-models)
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
@@ -44,6 +47,9 @@ The project pipeline covers:
 - **Comparative Model Training:** Scripts to train nano, medium, and large variants of YOLOv11-seg.
 - **Granular Evaluation:** A detailed evaluation pipeline to test model performance on separate weather-specific test sets.
 - **Performance Optimization:** Includes scripts for INT8 quantization and TensorRT benchmarking to simulate a real-world deployment workflow.
+
+## Trained Models
+https://drive.google.com/file/d/1FJlD8G93357Z-cuRHB4xnT66y-Tx1CKk/view?usp=sharing
 
 ## Project Structure
 

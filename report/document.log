@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.17)  9 JUN 2025 03:41
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.17)  9 JUN 2025 04:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -872,7 +872,7 @@ LaTeX Font Warning: Font shape `TU/XBNiloofar.ttf(0)/b/n' undefined
 ]
 فصل 2.
 
-Overfull \hbox (10.88576pt too wide) in paragraph at lines 86--87
+Overfull \hbox (10.88576pt too wide) in paragraph at lines 92--93
 [][]\TU/XBNiloofar.ttf(0)/b/n/10 هدف از این پروژه، ارزیابی کمی عملکرد مدل پیشرفته YOLOv۱۱-seg برای قطعه‌بندی نمونه در چنین محیط‌های چالش‌برانگیزی[]
  []
 
@@ -922,7 +922,7 @@ File: images/data2/augmentation_intensity.png Graphic file (type bmp)
  [17] [18]
 فصل 6.
 
-Overfull \hbox (19.3558pt too wide) in paragraph at lines 177--178
+Overfull \hbox (19.3558pt too wide) in paragraph at lines 183--184
 []\TU/XBNiloofar.ttf(0)/b/n/10 هسته مرحله آزمایشی شامل آموزش سه نسخه متمایز از مدل قطعه‌بندی YOLOv۱۱ بود: YOLOv۱۱n-seg (نانو)، YOLOv۱۱m-[]
  []
 
@@ -953,7 +953,7 @@ File: images/large/val_batch2_pred.jpg Graphic file (type bmp)
 فصل 7.
 
 LaTeX Font Warning: Font shape `TU/XBNiloofar.ttf(0)/m/it' undefined
-(Font)              using `TU/XBNiloofar.ttf(0)/m/n' instead on input line 263.
+(Font)              using `TU/XBNiloofar.ttf(0)/m/n' instead on input line 269.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -981,11 +981,11 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 7269DB4EE9F91ABA60BCFE56EE295D08;1403.
  ) 
 Here is how much of TeX's memory you used:
- 19763 strings out of 474773
- 377921 string characters out of 5761288
+ 19768 strings out of 474773
+ 377999 string characters out of 5761288
  1932842 words of memory out of 5000000
- 41491 multiletter control sequences out of 15000+600000
- 565029 words of font info for 95 fonts, out of 8000000 for 9000
+ 41494 multiletter control sequences out of 15000+600000
+ 565037 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,9n,107p,1393b,379s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
